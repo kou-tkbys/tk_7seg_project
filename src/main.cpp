@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <ht16k33.h>
+#include <TCA9548.h>
 
 /*
     元々 HT16K33 を７セグLEDをドライブする想定で回路に組み込んでいたので、完全に
@@ -161,9 +162,14 @@ uint8_t LED_3RD   = 0b0000000000000011;
 uint8_t LED_4TH   = 0b0000000000000100;
 
 /*
- * HT16K33定義（LED制御）
+ * HT16K33インスタンス
  */
 HT16K33 HT;
+
+/*
+ * TCA9548インスタンス
+ */
+TCA9548 MP(0x70);
 
 void setup() {
   // put your setup code here, to run once:
